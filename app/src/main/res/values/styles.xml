@@ -5,4 +5,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="calculator_button_style">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="clear_button_style"
+        parent="@android:style/TextAppearance.Medium">
+        <item name="android:background">@drawable/background_clear_button</item>
+    </style>
+
+
 </resources>

@@ -2,11 +2,17 @@ package nyc.c4q.yuliyakaleda.calculator;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -35,6 +41,7 @@ public class MainActivity extends ActionBarActivity {
     Button bXToPow2;
     Button bEqual;
     Button bPerCent;
+    Button bCurious;
 
     Button b1;
     Button b2;
@@ -54,8 +61,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        display = (TextView) findViewById(R.id.enter_numbers);
 
         ArrayList<Button> buttons = new ArrayList<Button>();
         b1 = (Button) findViewById(R.id.button_1);
@@ -90,6 +95,7 @@ public class MainActivity extends ActionBarActivity {
         bXToPow2 = (Button) findViewById(R.id.button_x_pow_2);
         bEqual = (Button) findViewById(R.id.b_equal);
         bPerCent = (Button) findViewById(R.id.button_per_cent);
+        bCurious = (Button) findViewById(R.id.button_happy);
 
         buttons.add(b1);
         buttons.add(b2);
@@ -110,8 +116,13 @@ public class MainActivity extends ActionBarActivity {
         buttons.add(bClosedParen);
         buttons.add(bEqual);
 
+       for (Button b : buttons) {
+           b.setBackgroundResource(R.drawable.test);
+       }
 
-            for (Button btn : buttons) {
+        display = (TextView) findViewById(R.id.enter_numbers);
+
+        for (Button btn : buttons) {
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -297,6 +308,36 @@ public class MainActivity extends ActionBarActivity {
                 });
             }
 
+
+        if (bCurious != null) {
+            bCurious.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    // create layout for a toast
+                    LayoutInflater inflater = getLayoutInflater();
+
+                    View toastLayout = inflater.inflate(R.layout.toast_layout,
+                            (ViewGroup) findViewById(R.id.id_toast_layout));
+
+                    //generate a random joke
+                    int jokeID = getRandomJoke();
+
+                    // set an image
+                    ImageView image = (ImageView) toastLayout.findViewById(R.id.image);
+                    image.setImageResource(jokeID);
+
+                    // display a toast
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setView(toastLayout);
+                    toast.show();
+                }
+            });
+        }
+
+
             bEqual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -320,6 +361,23 @@ public class MainActivity extends ActionBarActivity {
         outState.putString(DISPLAY_RESULT_KEY, display.getText().toString());
     }
 
+    //method to randomly show a joke through toast
+    public Integer getRandomJoke() {
+        ArrayList<Integer> jokes = new ArrayList<Integer>();
+        jokes.add(R.drawable.joke1);
+        jokes.add(R.drawable.joke2);
+        jokes.add(R.drawable.joke3);
+        jokes.add(R.drawable.joke4);
+        jokes.add(R.drawable.joke6);
+        jokes.add(R.drawable.joke7);
+        jokes.add(R.drawable.joke8);
+        jokes.add(R.drawable.joke9);
+        jokes.add(R.drawable.joke0);
+
+        Random ran = new Random();
+        int Idx = ran.nextInt(8);
+        return jokes.get(Idx);
+    }
 }
 
 

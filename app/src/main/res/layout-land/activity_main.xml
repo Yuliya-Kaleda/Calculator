@@ -1,4 +1,3 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/abc_action_bar_stacked_max_height"
         android:gravity="right"
         android:maxLength="13"
-        android:background="#E0E0E0"
-        android:layout_marginTop="40dp"/>
+        android:background="#81C784"/>
 
 
     <TableLayout
@@ -30,7 +29,8 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/b_ln"
@@ -116,7 +116,8 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/button_y_pow_x"
@@ -202,7 +203,8 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
 
 
             <Button
@@ -289,7 +291,8 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/sin"
@@ -337,6 +340,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/AC"
+                android:background="#64DD17"
                 android:layout_column="4"
                 android:layout_weight="1"/>
 
