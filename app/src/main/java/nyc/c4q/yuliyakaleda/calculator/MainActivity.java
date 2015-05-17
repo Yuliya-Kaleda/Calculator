@@ -54,6 +54,8 @@ public class MainActivity extends ActionBarActivity {
     Button b9;
     Button b0;
 
+    ArrayList<Button> buttons;
+
     private static final String DISPLAY_RESULT_KEY = "displayResult";
     String result = "testing";
 
@@ -62,7 +64,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Button> buttons = new ArrayList<Button>();
+        buttons = new ArrayList<Button>();
         b1 = (Button) findViewById(R.id.button_1);
         b2 = (Button) findViewById(R.id.button_2);
         b3 = (Button) findViewById(R.id.button_3);
@@ -116,9 +118,21 @@ public class MainActivity extends ActionBarActivity {
         buttons.add(bClosedParen);
         buttons.add(bEqual);
 
-       for (Button b : buttons) {
-           b.setBackgroundResource(R.drawable.test);
-       }
+        ArrayList<Button> colorButtons = new ArrayList<Button>();
+        colorButtons.addAll(buttons);
+        colorButtons.add(bSin);
+        colorButtons.add(bCos);
+        colorButtons.add(bTan);
+        colorButtons.add(bLN);
+        colorButtons.add(bOneDivideX);
+        colorButtons.add(bAbs);
+        colorButtons.add(bYToPowX);
+        colorButtons.add(bPI);
+        colorButtons.add(bE);
+        colorButtons.add(bEToPowX);
+        colorButtons.add(bXToPow2);
+        colorButtons.add(bPerCent);
+        colorButtons.add(bCurious);
 
         display = (TextView) findViewById(R.id.enter_numbers);
 

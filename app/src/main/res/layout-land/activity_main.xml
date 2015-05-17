@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4CAF50" >
+    android:background="#81C784" >
 
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity ="center"
-        android:background="#4CAF50"
+        android:background="#81C784"
         android:layout_below="@+id/enter_numbers"
         android:layout_marginTop="40dp">
 
@@ -34,7 +34,7 @@
 
             <Button
                 android:id="@+id/b_ln"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ln"
@@ -43,7 +43,7 @@
 
             <Button
                 android:id="@+id/button_log"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/log"
@@ -53,7 +53,7 @@
 
             <Button
                 android:id="@+id/button_1_divide_x"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/one_division_x"
@@ -62,7 +62,7 @@
 
             <Button
                 android:id="@+id/button_abs"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/abs"
@@ -74,7 +74,7 @@
 
             <Button
                 android:id="@+id/button_9"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b9"
@@ -84,7 +84,7 @@
 
             <Button
                 android:id="@+id/button_8"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b8"
@@ -93,7 +93,7 @@
 
             <Button
                 android:id="@+id/button_7"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b7"
@@ -103,7 +103,7 @@
 
             <Button
                 android:id="@+id/multiplication"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/multiplication"
@@ -121,7 +121,7 @@
 
             <Button
                 android:id="@+id/button_y_pow_x"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/y_pow_x"
@@ -130,7 +130,7 @@
 
             <Button
                 android:id="@+id/button_PI"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/PI"
@@ -140,7 +140,7 @@
 
             <Button
                 android:id="@+id/button_E"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/E"
@@ -149,7 +149,7 @@
 
             <Button
                 android:id="@+id/button_e_pow_x"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/e_pow_x"
@@ -161,7 +161,7 @@
 
             <Button
                 android:id="@+id/button_6"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b6"
@@ -171,7 +171,7 @@
 
             <Button
                 android:id="@+id/button_5"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b5"
@@ -180,7 +180,7 @@
 
             <Button
                 android:id="@+id/button_4"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b4"
@@ -190,7 +190,7 @@
 
             <Button
                 android:id="@+id/b_equal"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/equal"
@@ -209,7 +209,7 @@
 
             <Button
                 android:id="@+id/closed_parenthesis"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/closed_parenthesis"
@@ -218,7 +218,7 @@
 
             <Button
                 android:id="@+id/open_parenthesis"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/open_parenthesis"
@@ -228,7 +228,7 @@
 
             <Button
                 android:id="@+id/button_x_pow_2"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -237,7 +237,7 @@
 
             <Button
                 android:id="@+id/button_happy"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Happy"
@@ -249,7 +249,7 @@
 
             <Button
                 android:id="@+id/button_3"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b3"
@@ -259,7 +259,7 @@
 
             <Button
                 android:id="@+id/button_2"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b2"
@@ -268,7 +268,7 @@
 
             <Button
                 android:id="@+id/button_1"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b1"
@@ -278,7 +278,7 @@
 
             <Button
                 android:id="@+id/button_0"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/b0"
@@ -296,7 +296,7 @@
 
             <Button
                 android:id="@+id/sin"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sin"
@@ -305,7 +305,7 @@
 
             <Button
                 android:id="@+id/cos"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cos"
@@ -315,7 +315,7 @@
 
             <Button
                 android:id="@+id/tan"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tan"
@@ -324,7 +324,7 @@
 
             <Button
                 android:id="@+id/button_dot"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bDot"
@@ -336,18 +336,17 @@
 
             <Button
                 android:id="@+id/AC"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/AC"
-                android:background="#64DD17"
                 android:layout_column="4"
                 android:layout_weight="1"/>
 
 
             <Button
                 android:id="@+id/sum"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sum"
@@ -356,7 +355,7 @@
 
             <Button
                 android:id="@+id/subtraction"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/subtraction"
@@ -366,7 +365,7 @@
 
             <Button
                 android:id="@+id/division"
-                style="?android:attr/buttonStyleSmall"
+                android:background="@drawable/test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/division"
