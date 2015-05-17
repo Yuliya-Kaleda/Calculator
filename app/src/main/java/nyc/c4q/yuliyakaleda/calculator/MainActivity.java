@@ -4,10 +4,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +23,9 @@ import java.util.Random;
 
 public class MainActivity extends ActionBarActivity {
 
+    LinearLayout portraitLayout;
+    RelativeLayout landscapeLayout;
+    TableLayout table;
     TextView display;
 
     Button bClear;
@@ -54,10 +63,12 @@ public class MainActivity extends ActionBarActivity {
     Button b9;
     Button b0;
 
+    int currentScreenColor;
     ArrayList<Button> buttons;
+    String result;
 
     private static final String DISPLAY_RESULT_KEY = "displayResult";
-    String result = "testing";
+    private static final String DISPLAY_COLOR_KEY = "colorChanges" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,210 +128,199 @@ public class MainActivity extends ActionBarActivity {
         buttons.add(bOpenParen);
         buttons.add(bClosedParen);
         buttons.add(bEqual);
-
-        ArrayList<Button> colorButtons = new ArrayList<Button>();
-        colorButtons.addAll(buttons);
-        colorButtons.add(bSin);
-        colorButtons.add(bCos);
-        colorButtons.add(bTan);
-        colorButtons.add(bLN);
-        colorButtons.add(bOneDivideX);
-        colorButtons.add(bAbs);
-        colorButtons.add(bYToPowX);
-        colorButtons.add(bPI);
-        colorButtons.add(bE);
-        colorButtons.add(bEToPowX);
-        colorButtons.add(bXToPow2);
-        colorButtons.add(bPerCent);
-        colorButtons.add(bCurious);
+        buttons.add(bClear);
 
         display = (TextView) findViewById(R.id.enter_numbers);
+        portraitLayout = (LinearLayout) findViewById(R.id.portrait);
+        landscapeLayout = (RelativeLayout) findViewById(R.id.landscape);
+        table = (TableLayout) findViewById(R.id.table);
+
 
         for (Button btn : buttons) {
-                btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        switch (view.getId()) {
-                            case R.id.button_1:
-                                display.append(b1.getText());
-                                break;
-                            case R.id.button_2:
-                                display.append(b2.getText());
-                                break;
-                            case R.id.button_3:
-                                display.append(b3.getText());
-                                break;
-                            case R.id.button_4:
-                                display.append(b4.getText());
-                                break;
-                            case R.id.button_5:
-                                display.append(b5.getText());
-                                break;
-                            case R.id.button_6:
-                                display.append(b6.getText());
-                                break;
-                            case R.id.button_7:
-                                display.append(b7.getText());
-                                break;
-                            case R.id.button_8:
-                                display.append(b8.getText());
-                                break;
-                            case R.id.button_9:
-                                display.append(b9.getText());
-                                break;
-                            case R.id.button_0:
-                                display.append(b0.getText());
-                                break;
-                            case R.id.button_dot:
-                                display.append(bDot.getText());
-                                break;
-                            case R.id.sum:
-                                display.append(bSum.getText());
-                                break;
-                            case R.id.subtraction:
-                                display.append(bSubtraction.getText());
-                                break;
-                            case R.id.division:
-                                display.append(bDivision.getText());
-                                break;
-                            case R.id.multiplication:
-                                display.append(bMultiplication.getText());
-                                break;
-                            case R.id.open_parenthesis:
-                                display.append(bOpenParen.getText());
-                                break;
-                            case R.id.closed_parenthesis:
-                                display.append(bClosedParen.getText());
-                                break;
-                        }
-                    }
-                });
-            }
-
-            bClear.setOnClickListener(new View.OnClickListener() {
-
+            btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    display.setText("");
+                    switch (view.getId()) {
+                        case R.id.button_1:
+                            display.append(b1.getText());
+                            break;
+                        case R.id.button_2:
+                            display.append(b2.getText());
+                            break;
+                        case R.id.button_3:
+                            display.append(b3.getText());
+                            break;
+                        case R.id.button_4:
+                            display.append(b4.getText());
+                            break;
+                        case R.id.button_5:
+                            display.append(b5.getText());
+                            break;
+                        case R.id.button_6:
+                            display.append(b6.getText());
+                            break;
+                        case R.id.button_7:
+                            display.append(b7.getText());
+                            break;
+                        case R.id.button_8:
+                            display.append(b8.getText());
+                            break;
+                        case R.id.button_9:
+                            display.append(b9.getText());
+                            break;
+                        case R.id.button_0:
+                            display.append(b0.getText());
+                            break;
+                        case R.id.button_dot:
+                            display.append(bDot.getText());
+                            break;
+                        case R.id.sum:
+                            display.append(bSum.getText());
+                            break;
+                        case R.id.subtraction:
+                            display.append(bSubtraction.getText());
+                            break;
+                        case R.id.division:
+                            display.append(bDivision.getText());
+                            break;
+                        case R.id.multiplication:
+                            display.append(bMultiplication.getText());
+                            break;
+                        case R.id.open_parenthesis:
+                            display.append(bOpenParen.getText());
+                            break;
+                        case R.id.closed_parenthesis:
+                            display.append(bClosedParen.getText());
+                            break;
+                    }
                 }
             });
+        }
 
-            if (bSin != null) {
-                bSin.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("sin");
-                    }
-                });
-            }
+        bClear.setOnClickListener(new View.OnClickListener() {
 
-            if (bCos != null) {
-                bCos.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("cos");
-                    }
-                });
+            @Override
+            public void onClick(View view) {
+                display.setText("");
             }
+        });
 
-            if (bTan != null) {
-                bTan.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("tan");
-                    }
-                });
-            }
+        if (bSin != null) {
+            bSin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("sin");
+                }
+            });
+        }
 
-            if (bLN != null) {
-                bLN.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("ln");
-                    }
-                });
-            }
+        if (bCos != null) {
+            bCos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("cos");
+                }
+            });
+        }
 
-            if (bLog != null) {
-                bLog.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("Log");
-                    }
-                });
-            }
+        if (bTan != null) {
+            bTan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("tan");
+                }
+            });
+        }
 
-            if (bOneDivideX != null) {
-                bOneDivideX.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("1/");
-                    }
-                });
-            }
+        if (bLN != null) {
+            bLN.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("ln");
+                }
+            });
+        }
 
-            if (bAbs != null) {
-                bAbs.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("|");
-                    }
-                });
-            }
+        if (bLog != null) {
+            bLog.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("log");
+                }
+            });
+        }
 
-            if (bYToPowX != null) {
-                bYToPowX.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("^");
-                    }
-                });
-            }
+        if (bOneDivideX != null) {
+            bOneDivideX.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("1/");
+                }
+            });
+        }
 
-            if (bPI != null) {
-                bPI.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("pi");
-                    }
-                });
-            }
+        if (bAbs != null) {
+            bAbs.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("|");
+                }
+            });
+        }
 
-            if (bE != null) {
-                bE.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("E");
-                    }
-                });
-            }
+        if (bYToPowX != null) {
+            bYToPowX.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("^");
+                }
+            });
+        }
 
-            if (bEToPowX != null) {
-                bEToPowX.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("e^");
-                    }
-                });
-            }
+        if (bPI != null) {
+            bPI.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("pi");
+                }
+            });
+        }
 
-            if (bXToPow2 != null) {
-                bXToPow2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append("^2");
-                    }
-                });
-            }
+        if (bE != null) {
+            bE.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("E");
+                }
+            });
+        }
 
-            if (bPerCent != null) {
-                bPerCent.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        display.append(bPerCent.getText());
-                    }
-                });
-            }
+        if (bEToPowX != null) {
+            bEToPowX.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("e^");
+                }
+            });
+        }
+
+        if (bXToPow2 != null) {
+            bXToPow2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append("^2");
+                }
+            });
+        }
+
+        if (bPerCent != null) {
+            bPerCent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    display.append(bPerCent.getText());
+                }
+            });
+        }
 
 
         if (bCurious != null) {
@@ -352,27 +352,31 @@ public class MainActivity extends ActionBarActivity {
         }
 
 
-            bEqual.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String input = display.getText().toString();
-                    result = Parser.parse(input);
-                    display.setText(result);
-                }
-            });
-
-
-            if (savedInstanceState != null) {
-                String displayResult = savedInstanceState.getString(DISPLAY_RESULT_KEY);
-                display.setText(displayResult);
-
+        bEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String input = display.getText().toString();
+                result = Parser.parse(input);
+                display.setText(result);
             }
+        });
+
+
+        if (savedInstanceState != null) {
+            String displayResult = savedInstanceState.getString(DISPLAY_RESULT_KEY);
+            currentScreenColor = savedInstanceState.getInt(DISPLAY_COLOR_KEY);
+
+            display.setText(displayResult);
+            getUserSelectionStyle(currentScreenColor);
         }
+    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(DISPLAY_RESULT_KEY, display.getText().toString());
+        outState.putInt(DISPLAY_COLOR_KEY, currentScreenColor);
     }
 
     //method to randomly show a joke through toast
@@ -391,6 +395,96 @@ public class MainActivity extends ActionBarActivity {
         Random ran = new Random();
         int Idx = ran.nextInt(8);
         return jokes.get(Idx);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // show menu when menu button is pressed
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        currentScreenColor = item.getItemId();
+        getUserSelectionStyle(currentScreenColor);
+        return true;
+    }
+
+    //method that sets a certain shade of color for all the layout elements
+    public void getUserSelectionStyle(int itemId) {
+        ArrayList<Button> colorButtons = new ArrayList<Button>();
+        colorButtons.addAll(buttons);
+        colorButtons.add(bSin);
+        colorButtons.add(bCos);
+        colorButtons.add(bTan);
+        colorButtons.add(bLN);
+        colorButtons.add(bLog);
+        colorButtons.add(bOneDivideX);
+        colorButtons.add(bAbs);
+        colorButtons.add(bYToPowX);
+        colorButtons.add(bPI);
+        colorButtons.add(bE);
+        colorButtons.add(bEToPowX);
+        colorButtons.add(bXToPow2);
+        colorButtons.add(bPerCent);
+        colorButtons.add(bCurious);
+
+        for (Button btn : colorButtons) {
+            if (btn != null) {
+
+                //green shades
+                if (itemId == R.id.green) {
+                    btn.setBackgroundResource(R.drawable.test);
+                    display.setBackgroundResource(R.color.green);
+                    if (portraitLayout != null) {
+                        portraitLayout.setBackgroundResource(R.color.green);
+                    } else {
+                        table.setBackgroundResource(R.color.green);
+                        landscapeLayout.setBackgroundResource(R.color.green);
+                    }
+
+                }
+
+                //red shades
+                else if (itemId == R.id.red) {
+                    btn.setBackgroundResource(R.drawable.test1);
+                    display.setBackgroundResource(R.color.red);
+                    if (portraitLayout != null) {
+                        portraitLayout.setBackgroundResource(R.color.red);
+                    } else {
+                        table.setBackgroundResource(R.color.red);
+                        landscapeLayout.setBackgroundResource(R.color.red);
+                    }
+                }
+
+                //orange shades
+                else if (itemId == R.id.orange) {
+                    btn.setBackgroundResource(R.drawable.test2);
+                    display.setBackgroundResource(R.color.orange);
+                    if (portraitLayout != null) {
+                        portraitLayout.setBackgroundResource(R.color.orange);
+                    } else {
+                        table.setBackgroundResource(R.color.orange);
+                        landscapeLayout.setBackgroundResource(R.color.orange);
+                    }
+                }
+
+                //black shades
+                else {
+                    btn.setBackgroundResource(R.drawable.test3);
+                    display.setBackgroundResource(R.color.grey);
+                    if (portraitLayout != null) {
+                        portraitLayout.setBackgroundResource(R.color.grey);
+                    } else {
+                        table.setBackgroundResource(R.color.grey);
+                        landscapeLayout.setBackgroundResource(R.color.grey);
+                    }
+                }
+            }
+        }
     }
 }
 
