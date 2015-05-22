@@ -18,4 +18,5 @@
         android:id="@+id/red"
         android:orderInCategory="100"
         android:title="@string/red_color" />
+
 </menu>

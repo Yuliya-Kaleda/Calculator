@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,9 @@ import java.util.Random;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    private static final String DISPLAY_RESULT_KEY = "displayResult";
+    private static final String DISPLAY_COLOR_KEY = "colorChanges" ;
 
     LinearLayout portraitLayout;
     RelativeLayout landscapeLayout;
@@ -66,9 +70,6 @@ public class MainActivity extends ActionBarActivity {
     int currentScreenColor;
     ArrayList<Button> buttons;
     String result;
-
-    private static final String DISPLAY_RESULT_KEY = "displayResult";
-    private static final String DISPLAY_COLOR_KEY = "colorChanges" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +135,8 @@ public class MainActivity extends ActionBarActivity {
         portraitLayout = (LinearLayout) findViewById(R.id.portrait);
         landscapeLayout = (RelativeLayout) findViewById(R.id.landscape);
         table = (TableLayout) findViewById(R.id.table);
-
+        //set the default color to green
+        currentScreenColor = R.id.green;
 
         for (Button btn : buttons) {
             btn.setOnClickListener(new View.OnClickListener() {
@@ -263,7 +265,7 @@ public class MainActivity extends ActionBarActivity {
             bAbs.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    display.append("|");
+                    display.append("abs");
                 }
             });
         }

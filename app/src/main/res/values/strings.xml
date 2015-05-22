@@ -17,7 +17,7 @@
     <string name="ln">LN</string>
     <string name="log">LOG</string>
     <string name="one_division_x">1/x</string>
-    <string name="abs">|</string>
+    <string name="abs">abs</string>
     <string name="y_pow_x">y^x</string>
     <string name="PI">PI</string>
     <string name="E">E</string>
@@ -39,5 +39,7 @@
     <string name="red_color">USSR Theme</string>
     <string name="black_color">Classic Theme</string>
     <string name="orange_color">Summer Theme</string>
+    <string name="sound_switcher">Sound on/off</string>
+
 
 </resources>
